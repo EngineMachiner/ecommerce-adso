@@ -1,7 +1,7 @@
 
 import { CSSProperties, FC } from 'react'
 import Head from 'next/head'
-import { NavBar } from '../ui';
+import { NavBar, SideMenu } from '../ui';
 
 interface Props {
     title: string;
@@ -28,8 +28,8 @@ export const ShopLayout: FC<Props> = ( { children, title, pageDescription, image
                 { imageFullUrl && ( <meta name='og:title' content={imageFullUrl}/> ) }
 
             </Head>
-
-            <nav>{ /* TODO: Navbar */ }<NavBar/></nav>
+nombre
+            <nav>{ /* TODO: Navbar */ }<SideMenu/><NavBar/></nav>
 
             { /* TODO: Sidebar */ }
 
