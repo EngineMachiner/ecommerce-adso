@@ -12,7 +12,6 @@ interface Props {
 const mainStyle: CSSProperties = {
     margin: '80px auto',    maxWidth: '1440px',
     padding: '0px 30px'
-
 }
 
 export const ShopLayout: FC<Props> = ( { children, title, pageDescription, imageFullUrl } ) => {
@@ -28,7 +27,7 @@ export const ShopLayout: FC<Props> = ( { children, title, pageDescription, image
                 { imageFullUrl && ( <meta name='og:title' content={imageFullUrl}/> ) }
 
             </Head>
-nombre
+
             <nav>{ /* TODO: Navbar */ }<SideMenu/><NavBar/></nav>
 
             { /* TODO: Sidebar */ }
