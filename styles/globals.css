@@ -8,11 +8,3 @@
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
 }
-
-.circular-btn {
-    border-radius: 30px
-}
-
-.circular-btn:hover {
-    background-color: '#30D680',    !important
-}
