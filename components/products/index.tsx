@@ -1,3 +1,5 @@
 export * from './ImageTemplate'
 export * from './ProductCard'
 export * from './ProductList'
+export * from './ProductSlideShow'
+export * from './TypeSelector'

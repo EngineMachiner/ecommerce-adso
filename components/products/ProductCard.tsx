@@ -1,10 +1,11 @@
 
-import { FC, useMemo, useState } from "react"
+'use client'
+
+import { FC, useEffect, useMemo, useRef, useState } from "react"
 import { IProduct } from "../../database/products"
 import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material"
 import ImageTemplate from "./ImageTemplate"
-
-interface Props { product: IProduct }
+import NextLink from "next/link"
 
 // Tomado de stackoverflow.
 function randomColor() {
@@ -19,15 +20,19 @@ function randomColor() {
 
 }
 
+interface Props { product: IProduct }
+
 export const ProductCard: FC<Props> = ( { product } ) => {
 
-    const colors = useMemo( () => [ randomColor(), randomColor() ], [] )
     const [isHovered, setHover] = useState(false)
+
     const color = useMemo( () => {
 
-        return !isHovered ? colors[0] : colors[1]
+        const colores = product.colores
 
-    }, [isHovered, colors] )
+        return !isHovered ? colores[0] : colores[1]
+
+    }, [ isHovered, product.colores ] )
 
     return (
         <Grid
@@ -37,9 +42,11 @@ export const ProductCard: FC<Props> = ( { product } ) => {
         >
 
             <Card>
-                <CardActionArea>
-                    <CardMedia component={ImageTemplate} color={color}/>
-                </CardActionArea>
+                <NextLink href="/product/ProductPage" passHref prefetch={false} legacyBehavior>
+                    <CardActionArea>
+                        <CardMedia component={ImageTemplate} color={color}/>
+                    </CardActionArea>
+                </NextLink>
             </Card>
 
             <Box sx={{ met: 1 }} className='fadeIn'>
