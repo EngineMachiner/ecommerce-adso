@@ -1,9 +1,9 @@
 import { Box, Button } from "@mui/material";
-import { FC, useMemo, useState } from "react"
+import { FC, useState } from "react"
 
 interface Props { selectedType: string;  types: string[] }
 
-export const TypeSelector: FC<Props> = ( { selectedType, types } ) => {
+export const ProductTypeSelector: FC<Props> = ( { selectedType, types } ) => {
 
     const [ selected, setSelected ] = useState(selectedType)
 

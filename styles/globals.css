@@ -16,3 +16,8 @@
 .circular-btn:hover {
     background-color: '#30D680',    !important
 }
+
+.summary-card {
+    border: 1px solid rbga( 0, 0, 0, 0.1 );
+    box-shadow: 0 5px 5px rgba( 0, 0, 0, 0.2 )
+}

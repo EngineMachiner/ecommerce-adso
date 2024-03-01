@@ -2,7 +2,7 @@
 import { Box, Button, Chip, Grid, Typography } from '@mui/material'
 import { ShopLayout } from '../../components/layouts'
 import { productTypes1, products } from '../../database/products'
-import { ProductSlideShow, TypeSelector } from '../../components/products'
+import { ProductSlideShow, ProductTypeSelector } from '../../components/products'
 import { ItemCounter } from '../../components/ui'
 
 const i = 0
@@ -34,7 +34,7 @@ const ProductPage = () => {
                             <Typography variant='subtitle2'>Cantidad</Typography>
                             { /* itemCounter */ }
                             <ItemCounter/>
-                            <TypeSelector selectedType={selectedType} types={productTypes}/>
+                            <ProductTypeSelector selectedType={selectedType} types={productTypes}/>
                         </Box>
 
                         <Button color='secondary' className='circular-btn'>Agregar a carrito</Button>

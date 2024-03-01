@@ -1,7 +1,7 @@
 
 'use client'
 
-import { FC, useEffect, useMemo, useRef, useState } from "react"
+import { FC, useMemo, useState } from "react"
 import { IProduct } from "../../database/products"
 import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material"
 import ImageTemplate from "./ImageTemplate"
@@ -42,7 +42,7 @@ export const ProductCard: FC<Props> = ( { product } ) => {
         >
 
             <Card>
-                <NextLink href="/product/ProductPage" passHref prefetch={false} legacyBehavior>
+                <NextLink href="/product" passHref prefetch={false} legacyBehavior>
                     <CardActionArea>
                         <CardMedia component={ImageTemplate} color={color}/>
                     </CardActionArea>
