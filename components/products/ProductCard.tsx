@@ -2,10 +2,9 @@
 'use client'
 
 import { FC, useMemo, useState } from "react"
-import { IProduct } from "../../database/products"
 import { Box, Card, CardActionArea, CardMedia, Grid, Typography } from "@mui/material"
-import ImageTemplate from "./ImageTemplate"
 import NextLink from "next/link"
+import { IProduct } from "../../interfaces";
 
 // Tomado de stackoverflow.
 function randomColor() {
@@ -24,15 +23,15 @@ interface Props { product: IProduct }
 
 export const ProductCard: FC<Props> = ( { product } ) => {
 
-    const [isHovered, setHover] = useState(false)
+    const [ isHovered, setHover ] = useState(false)
 
-    const color = useMemo( () => {
+    const productImage = useMemo( () => {
 
-        const colores = product.colores
+        return isHovered
+          ? `products/${ product.images[1] }`
+          : `products/${ product.images[0] }`
 
-        return !isHovered ? colores[0] : colores[1]
-
-    }, [ isHovered, product.colores ] )
+      }, [isHovered, product.images] )
 
     return (
         <Grid
@@ -44,14 +43,14 @@ export const ProductCard: FC<Props> = ( { product } ) => {
             <Card>
                 <NextLink href="/product" passHref prefetch={false} legacyBehavior>
                     <CardActionArea>
-                        <CardMedia component={ImageTemplate} color={color}/>
+                        <CardMedia component='img' image={productImage} alt={product.title}/>
                     </CardActionArea>
                 </NextLink>
             </Card>
 
             <Box sx={{ met: 1 }} className='fadeIn'>
-                <Typography fontWeight={700}>{ product.nombre }</Typography>
-                <Typography fontWeight={400}>{ `$${ product.precio }` }</Typography>
+                <Typography fontWeight={700}>{ product.title }</Typography>
+                <Typography fontWeight={400}>{ `$${ product.price }` }</Typography>
             </Box>
 
         </Grid>

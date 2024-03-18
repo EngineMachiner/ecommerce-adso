@@ -1,11 +1,16 @@
 import { Box, Button, CardActionArea, CardMedia, Grid, Link, Typography } from "@mui/material"
-import { products } from "../../database/products"
 import NextLink from "next/link"
-import ImageTemplate from "../products/ImageTemplate"
 import { ItemCounter } from "../ui"
 import { FC } from "react"
+import { initialData } from "../../database/products"
 
 interface Props { editable?: boolean }
+
+const products = [
+    initialData.products[0],
+    initialData.products[1],
+    initialData.products[2],
+]
 
 const CartList: FC<Props> = ( { editable } ) => {
 
@@ -20,8 +25,8 @@ const CartList: FC<Props> = ( { editable } ) => {
                                 <Link>
                                     <CardActionArea style={{ overflow: 'hidden' }}>
                                         <CardMedia 
-                                            component={ImageTemplate} 
-                                            color={ product.colores[0] }
+                                            image={`/products/${product.images[0]}`}
+                                            component='img'
                                             sx={{ borderRadius: '5px' }}
                                         />
                                     </CardActionArea>
@@ -32,8 +37,8 @@ const CartList: FC<Props> = ( { editable } ) => {
                         <Grid item xs={7}>
                             <Box display='flex' flexDirection='column'>
 
-                                <Typography variant='body1'>{ product.nombre }</Typography>
-                                <Typography variant='body1'>Color: <strong>{ product.colores[0].toUpperCase() }</strong></Typography>
+                                <Typography variant='body1'>{ product.title }</Typography>
+                                <Typography variant='body1'>Precio: <strong>{ product.price }</strong></Typography>
 
                                 { editable ? <ItemCounter/> : <Typography variant='h5'>3 productos</Typography> }
 
@@ -42,7 +47,7 @@ const CartList: FC<Props> = ( { editable } ) => {
 
                         <Grid item xs={2} display='flex' alignItems='center' flexDirection='column'>
 
-                                <Typography variant='subtitle1'>{ '$' + product.precio }</Typography>
+                                <Typography variant='subtitle1'>{ '$' + product.price }</Typography>
                                 { editable && <Button color='secondary' variant='text'>Eliminar</Button> }
 
                         </Grid>
