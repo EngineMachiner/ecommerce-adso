@@ -16,9 +16,9 @@ export const NavBar = () => {
                     </Link>
                 </NextLink>
 
-                <BarButton name='Categoria #1' category='1'/>
-                <BarButton name='Categoria #2' category='2'/>
-                <BarButton name='Categoria #3' category='3'/>
+                <BarButton name='Hombres' category='Hombre'/>
+                <BarButton name='Mujeres' category='Mujer'/>
+                <BarButton name='Unisex' category='Unisex'/>
 
                 <Box flex={1}/>
                 <IconButton><SearchOutlined/></IconButton>
