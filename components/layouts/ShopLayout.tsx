@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { NavBar, SideMenu } from '../ui';
 
 interface Props {
+    children: any;
     title: string;
     pageDescription: string;
     imageFullUrl?: string
